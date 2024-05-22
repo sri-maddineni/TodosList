@@ -1,0 +1,15 @@
+<app-addtodo class="m-1" (todoAdd)="addTodo($event)"></app-addtodo>
+
+<div *ngIf="todos.length === 0; else elseBlock">
+    <h1 class="text-center">Empty todos</h1>
+</div>
+<ng-template #elseBlock>
+    <h1 class="text-center">Your pending todos: {{ todos.length }}!</h1>
+</ng-template>
+
+<div class="container" style="display: flex; flex-wrap: wrap; justify-content:space-evenly;margin-bottom: 30px;">
+    <div *ngFor="let todo of todos; index as i" class="card m-3" style="width: 30rem;">
+        <app-todo-item [todo]="todo" [i]="i" (todoDelete)="deleteTodo($event)" (checkit)="checkit($event)">
+        </app-todo-item>
+    </div>
+</div>

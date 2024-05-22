@@ -1,0 +1,19 @@
+<div class="container">
+    <div >
+        <h3 [ngClass]="{ 'strike': todo.done, 'nostrike': !todo.done }">{{ todo.title }}</h3>
+    </div>
+    <div>
+        <p class="m-1 h6">{{ todo.des }}</p>
+    </div>
+    <p>is completed : {{this.todo.done}}</p>
+    
+    <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1" (click)="onCheck(todo)" [checked]="todo.done">
+        <label class="form-check-label" for="exampleCheck{{i}}">Mark as completed</label>
+    </div>
+    <div>
+        <button class="btn btn-sm btn-danger m-2" (click)="onClick(todo)">
+            Delete
+        </button>
+    </div>
+</div>
